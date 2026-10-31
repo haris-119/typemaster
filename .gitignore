@@ -1,0 +1,14 @@
+﻿# VS Code editor settings
+.vscode/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Local environment files
+.env
+.env.local

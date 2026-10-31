@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeMaster – Typing Speed Test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== APP WRAPPER ===== -->
+  <div class="app-wrapper">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">⌨️</span>
+        <h1 class="logo-text">Type<span class="accent">Master</span></h1>
+      </div>
+      <div class="best-score-badge">
+        <span class="best-score-label">Best Score</span>
+        <span class="best-score-divider"></span>
+        <span class="best-score-value" id="bestScoreDisplay">— WPM</span>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- ===== TEST SCREEN ===== -->
+      <section class="screen" id="testScreen">
+
+        <!-- Duration Selector -->
+        <div class="card duration-card">
+          <p class="card-label">Select Duration</p>
+          <div class="duration-buttons">
+            <button class="duration-btn active" data-duration="30">30s</button>
+            <button class="duration-btn" data-duration="60">60s</button>
+            <button class="duration-btn" data-duration="120">120s</button>
+          </div>
+        </div>
+
+        <!-- Timer -->
+        <div class="timer-display" id="timerDisplay">
+          <span id="timerValue">30</span>
+          <span class="timer-unit">sec</span>
+        </div>
+
+        <!-- Text Passage Card -->
+        <div class="card passage-card">
+          <p class="card-label">Type the text below</p>
+          <!-- The passage characters will be rendered here as <span> elements -->
+          <div class="passage" id="passage" aria-hidden="true"></div>
+          <!-- Invisible input captures keystrokes -->
+          <input
+            class="hidden-input"
+            id="hiddenInput"
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            aria-label="Typing input"
+            placeholder="Click here and start typing…"
+          />
+        </div>
+
+        <!-- Live Statistics -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-value" id="liveWpm">0</span>
+            <span class="stat-label">WPM</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="liveAccuracy">100%</span>
+            <span class="stat-label">Accuracy</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="liveCorrect">0</span>
+            <span class="stat-label">Correct</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="liveErrors">0</span>
+            <span class="stat-label">Errors</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-row">
+          <button class="btn btn-primary" id="resetBtn">↺ Restart</button>
+        </div>
+
+      </section>
+
+      <!-- ===== RESULT SCREEN ===== -->
+      <section class="screen hidden" id="resultScreen">
+        <div class="card result-card">
+          <h2 class="result-title">Test Complete!</h2>
+          <p class="result-evaluation" id="resultEvaluation"></p>
+
+          <!-- New Best badge — shown above the stats when achieved -->
+          <div class="new-best" id="newBestBadge" style="display:none;">
+            🏆 New Best Score!
+          </div>
+
+          <!-- Divider -->
+          <div class="result-divider"></div>
+
+          <!-- Stats grid -->
+          <div class="result-stats">
+            <div class="result-stat">
+              <span class="result-stat-value" id="resultWpm">0</span>
+              <span class="result-stat-label">WPM</span>
+            </div>
+            <div class="result-stat">
+              <span class="result-stat-value" id="resultAccuracy">0%</span>
+              <span class="result-stat-label">Accuracy</span>
+            </div>
+            <div class="result-stat">
+              <span class="result-stat-value" id="resultErrors">0</span>
+              <span class="result-stat-label">Errors</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="tryAgainBtn">↺ Try Again</button>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>TypeMaster &copy; 2025 — Practice makes perfect.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
